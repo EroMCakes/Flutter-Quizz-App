@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import './question.dart';
+import 'answer.dart';
+
 //void main() {
 //  runApp(MyApp());
 //}
@@ -7,23 +10,21 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
-  void answerQuestion() {
-    setState((){
-      questionIndex++;
+  void _answerQuestion() {
+    setState(() {
+      _questionIndex++;
     });
-  
-    print(questionIndex);
+
+    print(_questionIndex);
   }
 
   @override
@@ -33,27 +34,19 @@ class MyAppState extends State<MyApp> {
       'what\'s your favorite animal?'
     ];
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Quizz App'),
+          title: Center(child: Text('Quizz App')),
         ),
         body: Column(
           children: [
-            Text(
-              questions[questionIndex],
+            Question(
+              questions[_questionIndex],
             ),
-            RaisedButton(
-              child: Text('Choice 1'),
-              onPressed: answerQuestion,
-            ),
-            RaisedButton(
-              child: Text('Choice 2'),
-              onPressed: answerQuestion,
-            ),
-            RaisedButton(
-              child: Text('Choice 3'),
-              onPressed: answerQuestion,
-            ),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
       ),
