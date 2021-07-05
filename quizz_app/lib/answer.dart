@@ -10,10 +10,11 @@ class Answer extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: RaisedButton(
-              child: Text('Choice 1'),
-              onPressed: calledFunction,
-              color: Colors.blue ,
-            ),
+        child: Text('Choice 1'),
+        onPressed: calledFunction,
+        color: Colors.blue,
+        textColor: Colors.white,
+      ),
     );
   }
 }
